@@ -8,8 +8,8 @@ const app = require("./app");
 const formatServerError = require("./helpers/formatServerError");
 
 const server = http.createServer(app);
-const host = process.env.SERVER_HOST || "localhost";
-const port = process.env.SERVER_PORT || 8000;
+const host = process.env.HOST || "localhost";
+const port = process.env.PORT || 8000;
 
 server.listen(port, () => {
   debugServer(`Server is running at ${host}:${port}`);
