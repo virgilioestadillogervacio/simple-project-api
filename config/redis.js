@@ -1,19 +1,21 @@
 const redis = require("redis");
 const debugRedis = require("debug")("app:redis");
 
-let client = null;
+let config = null;
 
-if(process.env.NODE_ENV === "development") {
-  client = redis.createClient({
+if (process.env.NODE_ENV === "development") {
+  config = {
     host: process.env.REDIS_HOST,
     port: process.env.REDIS_PORT,
-  });
+  };
 } else {
-  client = redis.createClient({
+  config = {
     url: process.env.REDIS_URL,
-    auth_pass: process.env.REDIS_AUTH_PASS
-  });
+    auth_pass: process.env.REDIS_AUTH_PASS,
+  };
 }
+
+const client = redis.createClient(config);
 
 client.on("connect", () => {
   debugRedis("Client connected to redis.");

@@ -1,32 +1,32 @@
 const nodemailer = require("nodemailer");
 const debugEmail = require("debug")("app:email");
 
-let transport = null;
+let config = null;
 
 const sendEmail = (options) => {
-  if(process.env.NODE_ENV ===  "development") {
-    transport = {
+  if (process.env.NODE_ENV === "development") {
+    config = {
       host: process.env.MAILTRAP_HOST,
       port: process.env.MAILTRAP_PORT,
       auth: {
         user: process.env.MAILTRAP_USER,
         pass: process.env.MAILTRAP_PASS,
-      }
-    }
+      },
+    };
   } else {
-    transport = {
+    config = {
       service: process.env.EMAIL_SERVICE,
       auth: {
         user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD
-      }
-    }
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    };
   }
 
-  const transporter = nodemailer.createTransport(transport);
+  const transporter = nodemailer.createTransport(config);
 
   const mailOptions = {
-    from: process.env.EMAIL_FROM,
+    from: "virgilioestadillogervacio@gmail.com",
     to: options.to,
     subject: options.subject,
     html: options.text,
