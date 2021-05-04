@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "ecmaFeatures": {
+      "globalReturn": false
+    },
+    "babelOptions": {
+      "configFile": "./babel.config.json"
+    }
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": [
+      "warn"
+    ],
+    "no-var": [
+      "error"
+    ],
+    "prettier/prettier": "warn"
+  }
+}

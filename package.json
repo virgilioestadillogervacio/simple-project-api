@@ -1,0 +1,52 @@
+{
+  "name": "simple-project-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "private": true,
+  "author": "Virgilio G. Estadillo Jr.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/virgilioestadillogervacio/simple-project-api.git"
+  },
+  "license": "MIT",
+  "description": "Simple REST API Implementation for a simple project using Express",
+  "keywords": [
+    "REST API for simple project",
+    "Building REST API using Express"
+  ],
+  "scripts": {
+    "start": "cross-env node server.js",
+    "dev": "cross-env NODE_ENV=development DEBUG=app:* nodemon server.js",
+    "lint": "eslint . --ext .js --fix",
+    "seed:create": "cross-env DEBUG=app:seeder node ./database/seeders/create.js",
+    "seed:drop": "cross-env DEBUG=app:seeder node ./database/seeders/drop.js",
+    "migrate-mongo": "migrate-mongo"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/eslint-parser": "^7.13.14",
+    "@babel/preset-env": "^7.13.15",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-watch": "^7.0.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "bcryptjs": "^2.4.3",
+    "cross-env": "^7.0.3",
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "jsonwebtoken": "^8.5.1",
+    "migrate-mongo": "^8.2.2",
+    "mongoose": "^5.12.4",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.5.0",
+    "redis": "^3.1.1"
+  }
+}

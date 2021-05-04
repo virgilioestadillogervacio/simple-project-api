@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+
+# Environment
+/.env
+
+# logs
+/*-error.log
+/*-debug.log
+
+# Others
+/*.rdb
