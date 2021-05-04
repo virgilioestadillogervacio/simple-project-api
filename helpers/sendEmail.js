@@ -1,15 +1,29 @@
 const nodemailer = require("nodemailer");
 const debugEmail = require("debug")("app:email");
 
+let transport = null;
+
 const sendEmail = (options) => {
-  const transporter = nodemailer.createTransport({
-    host: process.env.MAILTRAP_HOST,
-    port: process.env.MAILTRAP_PORT,
-    auth: {
-      user: process.env.MAILTRAP_USER,
-      pass: process.env.MAILTRAP_PASS,
-    },
-  });
+  if(process.env.NODE_ENV ===  "development") {
+    transport = {
+      host: process.env.MAILTRAP_HOST,
+      port: process.env.MAILTRAP_PORT,
+      auth: {
+        user: process.env.MAILTRAP_USER,
+        pass: process.env.MAILTRAP_PASS,
+      }
+    }
+  } else {
+    transport = {
+      service: process.env.EMAIL_SERVICE,
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    }
+  }
+
+  const transporter = nodemailer.createTransport(transport);
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
