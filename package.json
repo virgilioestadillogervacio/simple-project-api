@@ -15,7 +15,7 @@
     "Building REST API using Express"
   ],
   "scripts": {
-    "start": "pm2 start server.js -i 4",
+    "start": "cross-env NODE_ENV=production pm2 start server.js",
     "dev": "cross-env NODE_ENV=development DEBUG=app:* nodemon server.js",
     "lint": "eslint . --ext .js --fix",
     "seed:create": "cross-env DEBUG=app:seeder node ./database/seeders/create.js",
