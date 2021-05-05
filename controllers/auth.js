@@ -166,7 +166,7 @@ class AuthController extends BaseController {
 
         try {
           sendEmail({
-            to: "virgiliogervacioestadillo@gmail.com",
+            to: email,
             subject: "Password Reset Request",
             text: message,
           });

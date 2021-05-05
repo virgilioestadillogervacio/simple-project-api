@@ -23,6 +23,9 @@ const sendEmail = (options) => {
     };
   }
 
+
+  
+
   const transporter = nodemailer.createTransport(config);
 
   const mailOptions = {
