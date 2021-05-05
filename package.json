@@ -15,8 +15,8 @@
     "Building REST API using Express"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server.js",
     "dev": "cross-env NODE_ENV=development DEBUG=app:* nodemon server.js",
+    "prod": "cross-env NODE_ENV=production node server.js",
     "lint": "eslint . --ext .js --fix",
     "seed:create": "cross-env DEBUG=app:seeder node ./database/seeders/create.js",
     "seed:drop": "cross-env DEBUG=app:seeder node ./database/seeders/drop.js",
@@ -47,7 +47,6 @@
     "mongoose": "^5.12.4",
     "morgan": "^1.10.0",
     "nodemailer": "^6.5.0",
-    "pm2": "^4.5.6",
     "redis": "^3.1.1"
   }
 }
